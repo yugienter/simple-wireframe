@@ -1,0 +1,49 @@
+@import "../../assets/styles/colors";
+@import "../../assets/styles/variables";
+.task-loading {
+  position: relative;
+  min-height: calc(100vh - #{$navbar-height} - 3.5rem);
+}
+.board-page {
+  background: url("../../assets/background/bg1.jpeg");
+  background-size: cover;
+  background-position: 50% 60%;
+  background-attachment: fixed;
+  overflow-y: hidden;
+  margin: 0 1rem;
+  min-height: calc(100vh - #{$navbar-height} - 3.5rem);
+  display: flex;
+  flex-direction: column;
+  &__title {
+    margin: 2rem 1rem;
+    font-size: 2rem;
+    color: white;
+    font-family: Quicksand, sans-serif;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+  }
+  &__description {
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+  }
+
+  .task-board {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    padding: 1rem 0;
+    flex-grow: 1;
+    flex-grow: 1;
+
+    &__task-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      height: 100%;
+      & > div {
+        height: 100%;
+      }
+    }
+  }
+}

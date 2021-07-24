@@ -1,0 +1,14 @@
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+
+  &_content {
+    margin-left: 5%;
+    min-height: 500px;
+    overflow: hidden;
+    .join-now {
+      font-size: 1.5vw;
+      margin: 2rem auto;
+    }
+  }
+}

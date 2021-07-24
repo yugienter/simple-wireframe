@@ -3,11 +3,6 @@ const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 
-const validateEmail = (email) => {
-  const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return re.test(email);
-};
-
 const userSchema = new Schema({
   username: {
     type: String,

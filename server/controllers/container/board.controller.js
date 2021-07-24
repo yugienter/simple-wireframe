@@ -4,6 +4,20 @@ const Task = require("../../models/task");
 
 const boardService = {};
 
+boardService.getBoards = async (req, res) => {
+  const { id } = req.user;
+  try {
+    const boards = await Board.find({}, "description name _id author")
+      .sort({ timeCreated: -1 });
+
+    console.log('boards', boards);
+    return res.json({ boards });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
 boardService.createNewBoard = async (req, res) => {
   const { id: authorId } = req.user;
   const { name, description } = req.body;

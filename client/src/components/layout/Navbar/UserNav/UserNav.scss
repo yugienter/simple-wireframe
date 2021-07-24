@@ -1,0 +1,13 @@
+
+@import "../../../../assets/styles/mediaQueries";
+
+.profile-nav {
+  @include mobile {
+    .navbar__item__label {
+      display: none;
+    }
+  }
+  &.drop-down-menu {
+    transform: translate(-1rem, 2rem);
+  }
+}

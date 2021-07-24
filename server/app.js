@@ -52,6 +52,8 @@ require("./routes/")(app);
 
 app.use(routeErrorHandler);
 
+require("./sockets")(io);
+
 server.listen(ENV_CONF.PORT);
 server.on('error', onError);
 server.on('listening', onListening);

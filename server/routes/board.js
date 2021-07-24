@@ -6,6 +6,7 @@ const { board } = controllers;
 
 const {
   createNewBoard,
+  getBoards,
   getBoardById,
   updateBoard,
   deleteBoard,
@@ -14,6 +15,7 @@ const {
 const authJWT = passport.authenticate("jwt", { session: false });
 
 router.route("/")
+  .get(authJWT, getBoards)
   .post(authJWT, createNewBoard);
 
 router.route("/:boardId")

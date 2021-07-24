@@ -1,0 +1,21 @@
+@import "../../../../assets/styles/colors";
+
+.column-name-input {
+  font-family: "Secular One", sans-serif;
+  border: dashed 1px darken($blue-primary-overlay, 60%);
+  flex-grow: 1;
+  outline: none;
+  color: dashed 1px darken($blue-primary-overlay, 60%);
+}
+
+.task-column-name {
+  margin: 0;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 5px;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px black;
+  color: white;
+}
