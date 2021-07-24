@@ -1,8 +1,6 @@
 const Board = require("../../models/board");
 const User = require("../../models/user");
 const Task = require("../../models/task");
-const Tag = require("../../models/tag");
-const paginateContent = require("../../helper/pagination");
 
 const boardService = {};
 
