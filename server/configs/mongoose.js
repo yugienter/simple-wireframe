@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
+const ENV_CONF = require("./env.conf");
 
-const { DBURI } = process.env;
+const { MONGO_URI, NODE_ENV } = ENV_CONF;
+
 (async () => {
   try {
-    await mongoose.connect(DBURI, {
+    await mongoose.connect(MONGO_URI[NODE_ENV], {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
@@ -17,7 +19,7 @@ const { DBURI } = process.env;
 const db = mongoose.connection;
 
 db.on("open", () => {
-  console.log(`Successfully connected to MongoDB ${DBURI}`);
+  console.log(`Successfully connected to MongoDB ${MONGO_URI[NODE_ENV]}`);
 });
 
 db.on("error", console.error.bind(console, "Can't connect to MongoDB: "));

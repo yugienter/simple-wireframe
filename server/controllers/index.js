@@ -1,7 +1,7 @@
-const user = require('./container/user.controller');
-const board = require('./container/board.controller');
-const column = require('./container/column.controller');
-const task = require('./container/task.controller');
+const user = require("./container/user.controller");
+const board = require("./container/board.controller");
+const column = require("./container/column.controller");
+const task = require("./container/task.controller");
 
 /**
  * Module exports

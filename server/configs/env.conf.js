@@ -1,10 +1,15 @@
 const ENIVROMENT_VARIABLES = {};
 
-const { PORT, NODE_ENV, SECRET_KEY, CORS_ORIGIN } = process.env;
+const { PORT, NODE_ENV, SECRET_KEY, CORS_ORIGIN, DBURI } = process.env;
 
 ENIVROMENT_VARIABLES.SECRET_KEY = SECRET_KEY || "veri $ecret K#y";
 ENIVROMENT_VARIABLES.PORT = PORT || 3000;
 ENIVROMENT_VARIABLES.NODE_ENV = NODE_ENV || "development";
 ENIVROMENT_VARIABLES.CORS_ORIGIN = CORS_ORIGIN || "http://localhost:3000";
+ENIVROMENT_VARIABLES.MONGO_URI = {
+  production: DBURI,
+  development: DBURI,
+  test: 'mongodb://localhost:27017/testing'
+}
 
 module.exports = ENIVROMENT_VARIABLES;

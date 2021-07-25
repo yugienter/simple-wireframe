@@ -1,6 +1,6 @@
-require('dotenv').config();
+require("dotenv").config();
 process.env.NODE_PATH = './';
-require('module').Module._initPaths();
+require("module").Module._initPaths();
 const ENV_CONF = require("./configs/env.conf");
 const express = require("express")
 const http = require("http");
@@ -23,15 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors({ credentials: true, origin: ENV_CONF.CORS_ORIGIN }));
 
-if (env === "development") {
-  app.use(logger("dev"));
+if (env !== 'test') {
+  app.use(logger('dev'));
   app.use(errorHandler());
-}
-if (env === "production") {
-  app.use(logger("prod"));
-  app.use(errorHandler());
-} else {
-  app.use(logger("short"));
 }
 
 /**
@@ -80,3 +74,5 @@ function onListening() {
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   console.log('*** Listening on ' + bind);
 }
+
+module.exports = server;
