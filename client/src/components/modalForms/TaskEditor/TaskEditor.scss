@@ -3,9 +3,6 @@
 
 
 .task-editor {
-	display: grid;
-	grid-template-columns: 5fr 1fr;
-	grid-gap: 1rem;
 	&__inputs {
 		display: flex;
 		flex-direction: column;

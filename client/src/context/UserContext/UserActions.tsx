@@ -15,8 +15,15 @@ export interface LoginFailAction {
 export interface LogoutAction {
   type: UserActionType.LOGOUT;
 }
+export interface BoardRoleAction {
+  type: UserActionType.ROLE;
+  payload: {
+    boardId: string;
+  };
+}
 
 export type UserAction =
   | LoginSuccessAction
   | LoginFailAction
   | LogoutAction
+  | BoardRoleAction

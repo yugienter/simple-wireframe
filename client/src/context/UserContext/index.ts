@@ -7,6 +7,7 @@ export enum UserActionType {
   LOGIN_SUCCESS = "LOGIN_SUCCESS",
   LOGIN_FAIL = "LOGIN_FAIL",
   LOGOUT = "LOGOUT",
+  ROLE = "ROLE",
 }
 
 export type UserState = {

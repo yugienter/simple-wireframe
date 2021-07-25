@@ -3,7 +3,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 import "./BoardPage.scss";
 import TaskBoard from "./TaskBoard";
 import { ModalContext, ModalActionType } from "context/ModalContext";
-import { UserContext } from "context/UserContext";
+import { UserContext, UserActionType } from "context/UserContext";
 import TaskDisplay from "components/modalForms/TaskDisplay/TaskDisplay";
 import { TaskContext, TasksActionType } from "context/TaskContext";
 import { getBoard } from "service";
@@ -55,6 +55,10 @@ const BoardPage: React.FC<BoardPageProps> = ({ match, location }) => {
     const getLoggedIn = async () => {
       if (_isMounted) {
         ws.emit("joinBoardRoom", { room: boardId });
+        userDispatch({
+          type: UserActionType.ROLE,
+          payload: { boardId },
+        });
       }
     };
 

@@ -87,10 +87,10 @@ const TaskDisplay: React.FC<TaskDisplayProps> = ({ taskId }) => {
           <div className="text-details">
             <div className="info-header">
               <Button className="edit-btn delete-btn" onClick={deleteTaskk}>
-                delete
+                Delete
               </Button>
               <Button className="edit-btn" onClick={openTaskEditModal}>
-                edit
+                Edit
               </Button>
             </div>
             <h1 className="task-title">{taskDetails.title}</h1>

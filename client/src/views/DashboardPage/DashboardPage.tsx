@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./DashboardPage.scss";
-import AddBoxIcon from "@material-ui/icons/AddBox";
 import Button from "components/general/Button";
 import BoardCreate from "components/modalForms/BoardEditor/BoardCreate";
 import ContainerBox from "components/layout/ContainerBox/ContainerBox";
@@ -56,8 +55,7 @@ const DashboardPage: React.FC = () => {
       <Button
         onClick={openCreateNewBoardModal}
         className="board-dashboard__new-btn">
-        <AddBoxIcon />
-        New Board
+        + New Board
       </Button>
       <LoadingOverlay show={boards.isLoading} opacity={0}>
         <h1 className="board-container__title">

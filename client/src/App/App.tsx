@@ -22,7 +22,10 @@ const App: React.FC = () => {
       const { data, status } = await isUserAuthenticated();
       if (status === 401) userDispatch({ type: UserActionType.LOGIN_FAIL });
       if (!!data)
-        userDispatch({ type: UserActionType.LOGIN_SUCCESS, payload: { user: data.user } });
+        userDispatch({
+          type: UserActionType.LOGIN_SUCCESS,
+          payload: { user: data.user }
+        });
     };
     checkUserAuthentication();
 

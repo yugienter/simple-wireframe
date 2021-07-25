@@ -24,7 +24,7 @@ const ChangePasswordForm: React.FC<FormikProps<FormValues>> = (props) => {
     } else if (status?.submitStatus === "ERROR") {
       setErrors(status?.message);
     }
-    return () => {};
+    return () => { };
   }, [status, modalDispatch, setErrors]);
 
   return (

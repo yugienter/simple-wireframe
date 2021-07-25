@@ -34,6 +34,8 @@ const reducer: Reducer<UserState, UserAction> = (state, action) => {
         authStatus: null,
         currentBoard: { id: null }
       };
+    case UserActionType.ROLE:
+      return { ...state, currentBoard: { id: action.payload.boardId } };
     default:
       return state;
   }
