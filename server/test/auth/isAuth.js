@@ -12,11 +12,7 @@ chai.use(chaiHttp);
 describe('api/isAuth', function () {
   describe('GET : isAuthenticated : SUCCESS', function () {
     afterEach(async function () {
-      try {
-        return await User.deleteMany({});
-      } catch (error) {
-        console.log('error', error);
-      }
+      await User.deleteMany({});
     });
     it('should return status 200 if isAuth', function (done) {
       authJWT.getHeadersConfig({}).then(({ token, username }) => {

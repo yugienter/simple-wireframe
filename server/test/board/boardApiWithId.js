@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const chaiHttp = require("chai-http");
 const server = require("../../app");
 const bcrypt = require("bcryptjs");
-const authJWT = require("../helper/utils");
+const utils = require("../helper/utils");
 const Board = require("../../models/board");
 const User = require("../../models/user");
 const Task = require("../../models/task");
@@ -16,17 +16,12 @@ chai.use(chaiHttp);
 
 describe('api/board/:boardId', function () {
   beforeEach(async function () {
-    const { token, userId } = await authJWT.getHeadersConfig({});
+    const { token, userId } = await utils.getHeadersConfig({});
     this.authorId = userId;
     this.token = token;
-    this.columnId = ObjectId();
-    const newBoard = await Board.create({
-      name: "Board1",
-      description: "test",
-      author: this.authorId,
-      columns: [{ _id: this.columnId, name: 'column1', task: [] }],
-    })
+    const newBoard = await utils.createSimpleBoard({ userId });
     this.boardId = newBoard._id.toString();
+    this.boardName = newBoard.name;
   })
   afterEach(async function () {
     await User.deleteMany({});
@@ -113,7 +108,9 @@ describe('api/board/:boardId', function () {
       foundBoard.columns[0].tasks.push(savedTask._id);
       await foundBoard.save();
     })
-
+    afterEach(async function () {
+      await Task.deleteMany();
+    })
     context('SUCCESS', function () {
       it('should delte Board and all Task if is author', function (done) {
         chai.request(server)
@@ -134,7 +131,7 @@ describe('api/board/:boardId', function () {
     })
     context('FAIL', function () {
       before(async function () {
-        const { token, userId } = await authJWT.getHeadersConfig(
+        const { token, userId } = await utils.getHeadersConfig(
           { username: 'newuser' }
         );
         this.notAuthorToken = token;
@@ -151,7 +148,7 @@ describe('api/board/:boardId', function () {
             res.should.have.status(401);
             Board.findById(this.boardId).then(board => {
               board.should.be.a('object');
-              board.should.have.property('name').eql('Board1');
+              board.should.have.property('name').eql(this.boardName);
               done();
             })
           });
