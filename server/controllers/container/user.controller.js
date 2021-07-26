@@ -51,7 +51,7 @@ userService.loginJWT = async (req, res, next) => {
   }
 };
 
-userService.isAuthenticated = async (req, res) => {
+userService.isAuthenticated = async (req, res, next) => {
   const { id } = req.user;
   try {
     const foundUser = await User.findOne(
@@ -70,7 +70,7 @@ userService.isAuthenticated = async (req, res) => {
   }
 };
 
-userService.changePassword = async function (req, res) {
+userService.changePassword = async function (req, res, next) {
   const { id } = req.user;
   const { newPassword, matchPassword } = req.body;
 

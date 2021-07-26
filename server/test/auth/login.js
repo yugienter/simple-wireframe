@@ -8,8 +8,8 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('Login', function () {
-  beforeEach(async () => {
+describe('api/login', function () {
+  beforeEach(async function () {
     this.username = 'username123';
     this.password = '12345';
     const salt = await bcrypt.genSalt(10);
@@ -20,10 +20,10 @@ describe('Login', function () {
     });
     await newUser.save();
   })
-  afterEach(async () => {
+  afterEach(async function () {
     await User.deleteMany({});
   });
-  describe('POST api/login Success', function () {
+  describe('POST : loginJWT : SUCCESS', function () {
     it('should return status 200 if password and username is match',
       function (done) {
         chai.request(server)
@@ -41,7 +41,7 @@ describe('Login', function () {
           });
       });
   })
-  describe('POST api/login Fail', function () {
+  describe('POST : loginJWT : FAIL', function () {
     it('should return status 400 if password is not match',
       function (done) {
         chai.request(server)
@@ -56,7 +56,7 @@ describe('Login', function () {
           });
       });
   })
-  describe('POST api/login Fail', function () {
+  describe('POST : loginJWT : FAIL', function () {
     it('should return status 404 if username does not exist',
       function (done) {
         chai.request(server)

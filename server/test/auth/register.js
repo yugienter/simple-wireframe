@@ -7,14 +7,14 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('Register', function () {
-  beforeEach(async () => {
+describe('api/register', function () {
+  beforeEach(async function () {
     await User.deleteMany({});
   })
-  afterEach(async () => {
+  afterEach(async function () {
     await User.deleteMany({});
   });
-  describe('POST api/register Success', function () {
+  describe('POST : registerUser :  SUCCESS', function () {
     it('should return status 201 if password and username is valid',
       function (done) {
         chai.request(server)
@@ -28,7 +28,7 @@ describe('Register', function () {
           });
       });
   })
-  describe('POST api/register Fail : no password', function () {
+  describe('POST : registerUser : FAIL', function () {
     it('should return status 400 if have no password', function (done) {
       chai.request(server)
         .post('/api/register')
@@ -41,7 +41,7 @@ describe('Register', function () {
         });
     });
   })
-  describe('POST api/register Fail : no username', function () {
+  describe('POST : registerUser : FAIL', function () {
     it('should return status 400 if have no username', function (done) {
       chai.request(server)
         .post('/api/register')

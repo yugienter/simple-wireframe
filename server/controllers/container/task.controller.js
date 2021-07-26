@@ -2,7 +2,7 @@ const Task = require("../../models/task");
 
 const taskService = {};
 
-taskService.getTaskbyId = async (req, res) => {
+taskService.getTaskbyId = async (req, res, next) => {
   const { taskId } = req.params;
   try {
     const foundTask = await Task.findOne({ _id: taskId }).populate({
@@ -15,7 +15,7 @@ taskService.getTaskbyId = async (req, res) => {
   }
 };
 
-taskService.updateTask = async (req, res) => {
+taskService.updateTask = async (req, res, next) => {
   const { taskId } = req.params;
   const { title, description } = req.body;
   try {

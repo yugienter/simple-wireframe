@@ -4,13 +4,10 @@ const Task = require("../../models/task");
 
 const boardService = {};
 
-boardService.getBoards = async (req, res) => {
-  const { id } = req.user;
+boardService.getBoards = async (req, res, next) => {
   try {
     const boards = await Board.find({}, "description name _id author")
       .sort({ timeCreated: -1 });
-
-    console.log('boards', boards);
     return res.json({ boards });
   } catch (error) {
     console.log(error);
@@ -18,7 +15,7 @@ boardService.getBoards = async (req, res) => {
   }
 };
 
-boardService.createNewBoard = async (req, res) => {
+boardService.createNewBoard = async (req, res, next) => {
   const { id: authorId } = req.user;
   const { name, description } = req.body;
   const newBoard = new Board({ name, description, author: authorId });
@@ -33,7 +30,7 @@ boardService.createNewBoard = async (req, res) => {
   }
 };
 
-boardService.updateBoard = async (req, res) => {
+boardService.updateBoard = async (req, res, next) => {
   const { name, description } = req.body;
   const { boardId } = req.params;
   try {
@@ -47,7 +44,7 @@ boardService.updateBoard = async (req, res) => {
   }
 };
 
-boardService.getBoardById = async (req, res) => {
+boardService.getBoardById = async (req, res, next) => {
   const { boardId } = req.params;
   const { short } = req.query;
   try {
@@ -70,7 +67,7 @@ boardService.getBoardById = async (req, res) => {
   }
 };
 
-boardService.deleteBoard = async (req, res) => {
+boardService.deleteBoard = async (req, res, next) => {
   const { id } = req.user;
   const { boardId } = req.params;
 

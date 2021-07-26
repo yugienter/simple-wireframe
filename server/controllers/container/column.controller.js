@@ -2,7 +2,7 @@ const Board = require("../../models/board");
 
 const columnService = {};
 
-columnService.getBoardColumns = async (req, res) => {
+columnService.getBoardColumns = async (req, res, next) => {
   const { boardId } = req.params;
   try {
     const { columns } = await Board.findOne({ _id: boardId }, "columns").populate({
@@ -17,7 +17,7 @@ columnService.getBoardColumns = async (req, res) => {
   }
 };
 
-columnService.editColumnName = async (req, res) => {
+columnService.editColumnName = async (req, res, next) => {
   const { boardId, columnId } = req.params;
   const { name } = req.body;
   try {

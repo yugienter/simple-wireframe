@@ -9,7 +9,7 @@ async function getHeadersConfig({ username = 'admin123', password = 'admin123@' 
   const newUser = new User({ username, password: hashedPassword });
   const adminUser = await newUser.save();
   const token = jwt.sign({ id: adminUser._id }, SECRET_KEY, { expiresIn: 604800 });
-  return { token: `Bearer ${token}`, username };
+  return { token: `Bearer ${token}`, username, userId: adminUser._id };
 }
 
 module.exports = { getHeadersConfig };
