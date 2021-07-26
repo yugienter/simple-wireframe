@@ -9,7 +9,7 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('isAuth', function () {
-  describe('POST api/isAuth Success', function () {
+  describe('GET api/isAuth Success', function () {
     it('should return status 200 if isAuth', async function () {
       const { token, username } = await authJWT.getHeadersConfig({});
       let chain = chai.request(server).get('/api/isAuth');
