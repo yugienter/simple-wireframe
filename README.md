@@ -57,11 +57,26 @@ The project will run
 ```
 http://localhost:3000
 ```
-<br/>
 
 Stop
 ```
 make stop
 ```
-
-
+<br/>
+Run and check API Unit Test
+```
+docker-compose up - mongo
+```
+```
+cd server
+```
+```
+npm i 
+```
+```
+npm run test
+```
+Stop 
+```
+docker-compose down
+```
