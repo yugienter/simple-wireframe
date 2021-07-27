@@ -7,7 +7,7 @@ import {
   moveTaskParams,
   createTaskParams,
 } from "types/service/request";
-import { getTaskResponse, GeneralResponse} from "types/service/response";
+import { getTaskResponse, GeneralResponse } from "types/service/response";
 
 // TASKS - GET
 export const getBoardTask = async ({ boardId, taskId, setLoading }: getBoardTaskParams) => {

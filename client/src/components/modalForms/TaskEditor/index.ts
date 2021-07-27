@@ -10,7 +10,7 @@ export interface TaskCreateProps {
   columnId: string;
 }
 
-export interface FormValues extends TaskI {}
+export interface FormValues extends TaskI { }
 
 export interface TaskUpdateProps {
   boardId: string;

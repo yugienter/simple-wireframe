@@ -1,3 +1,3 @@
 export interface GeneralResponse {
-    message: string
+  message: string
 }

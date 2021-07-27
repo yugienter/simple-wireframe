@@ -14,7 +14,7 @@ const ColumnNameInput: React.FC<ColumnNameInputProps> = ({
 
   useEffect(() => {
     columnNameInputRef.current?.focus();
-    return () => {};
+    return () => { };
   }, [editTitle]);
 
   const cancelEditHandler = () => {

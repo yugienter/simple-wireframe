@@ -10,7 +10,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
       <textarea
         name={name}
         className={`text-field__textarea ${className || ""}`}
-         {...fieldProps}></textarea>
+        {...fieldProps}></textarea>
       <div className="text-field__line"></div>
       <label
         htmlFor={name}

@@ -51,7 +51,7 @@ const BoardUpdateWrapper: React.FC<BoardEditorProps> = (props) => {
       }
     };
     getBoardInfo();
-    return () => {};
+    return () => { };
   }, [props.boardId]);
 
   return (
