@@ -11,6 +11,9 @@ This is the simple wireframe (kanban product managerment)
 - Create, Update and Delete task cards
 - Real time task and column moving using *beautifulDnD* and *socket.io*
 
+### Diagram
+![diagram](https://github.com/yugienter/simple-wireframe/blob/master/dbImage/dbdiagram.png)
+
 ## Tech Stack
 ### Frontend
 - ReactJs
