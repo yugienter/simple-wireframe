@@ -46,8 +46,15 @@ Rund
 ```
 make run
 ```
+The project will run 
+```
+http://localhost:3000
+```
+<br/>
 
 Stop
 ```
 make stop
 ```
+
+
