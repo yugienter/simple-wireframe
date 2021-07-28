@@ -36,6 +36,13 @@ Clone source
 ```
 git clone https://github.com/yugienter/simple-wireframe.git
 ```
+Just ensure that docker daemon is running!
+
+```
+docker info
+```
+If ```docker info``` output have 'ERROR'.
+It means docker daemon in not running, then just start it, it depends of how do you installed and of your OS.
 
 Build 
 ```
@@ -50,11 +57,28 @@ The project will run
 ```
 http://localhost:3000
 ```
-<br/>
 
 Stop
 ```
 make stop
 ```
+<br/>
 
+Run and check API Unit Test
 
+```
+docker-compose up - mongo
+```
+```
+cd server
+```
+```
+npm i 
+```
+```
+npm run test
+```
+Stop 
+```
+docker-compose down
+```
