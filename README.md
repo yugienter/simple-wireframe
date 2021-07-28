@@ -32,39 +32,84 @@ This is the simple wireframe (kanban product managerment)
 - Chai
 
 ## Build app :
-Clone source 
+**Clone source**
 ```
 git clone https://github.com/yugienter/simple-wireframe.git
 ```
-Just ensure that docker daemon is running!
+<br/>
 
+**Method 1.**
+<br/>Install not through docker but using mongodb Atlas.
+**Go to the folder**
 ```
-docker info
+cd simple-wireframe
 ```
-If ```docker info``` output have 'ERROR'.
-It means docker daemon in not running, then just start it, it depends of how do you installed and of your OS.
+**Build in your local** : *It will install server and client dependencies*
+```
+make install
+```
 
-Build 
+**Create env** : *use **.env.example** as template to create **.env***
 ```
-make build
+make env_template
 ```
 
-Rund
+**Runs server in development**
 ```
-make run
+make run_server
 ```
-The project will run 
+**Open new terminal**
+<br/>Open a new terminal and go to the code folder simple-wireframe.
+
+**Runs client in deevelopment**
+```
+make run_client
+```
+
+**The project will run **
 ```
 http://localhost:3000
 ```
 
-Stop
+**API Unit Test**
+<br/>Open a new terminal and go to the code folder simple-wireframe.
+```
+make server_test
+```
+
+
+**Method 1.**
+<br/>Install through docker.
+
+**Just ensure that docker daemon is running!**
+```
+docker info
+```
+
+If ```docker info``` output have 'ERROR'.
+It means docker daemon in not running, then just start it, it depends of how do you installed and of your OS.
+
+**Build **
+```
+make build
+```
+
+**Runs**
+```
+make run
+```
+**The project will run**
+```
+http://localhost:3000
+```
+
+**Stop**
 ```
 make stop
 ```
 <br/>
 
-Run and check API Unit Test
+**Run and check API Unit Test**
 
 ```
 docker-compose up - mongo
@@ -78,7 +123,7 @@ npm i
 ```
 npm run test
 ```
-Stop 
+**Stop**
 ```
-docker-compose down
+make stop
 ```
