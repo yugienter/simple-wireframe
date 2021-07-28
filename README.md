@@ -66,7 +66,7 @@ make run_server
 make run_client
 ```
 
-**The project will run **
+**The project will run**
 ```
 http://localhost:3000
 ```
@@ -78,7 +78,7 @@ make server_test
 ```
 
 
-**Method 1.**
+**Method 2.**
 <br/>Install through docker.
 
 **Just ensure that docker daemon is running!**
@@ -89,7 +89,7 @@ docker info
 If ```docker info``` output have 'ERROR'.
 It means docker daemon in not running, then just start it, it depends of how do you installed and of your OS.
 
-**Build **
+**Build**
 ```
 make build
 ```
