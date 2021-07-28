@@ -22,3 +22,6 @@ run_server: ;@echo "Running Server....."; \
 
 run_client: ;@echo "Running Client....."; \
 	cd client && npm run start
+
+server_test: ;@echo "Testing API Server....."; \
+	cd server && npm run test
